@@ -7,7 +7,7 @@ Import-Module ActiveDirectory
 $path = 'path/to/your/csv/file';
 
 #Save de data into an array variable
-$members = Import-Csv C:\samaacount.csv -Header "samAccountNameHeader"
+$members = Import-Csv $path -Header "samAccountNameHeader"
 
 #Create an array to save te results
 $admembers = @()
