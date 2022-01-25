@@ -7,7 +7,7 @@ Import-Module ActiveDirectory
 $path = 'path/to/your/csv/file';
 
 #Save de data into an array variable
-$members = Import-Csv $path -Header "samAccountNameHeader"
+$members = Import-Csv $path -Header "columnName"
 
 #Create an array to save te results
 $admembers = @()
@@ -15,7 +15,7 @@ $admembers = @()
 
 #Loop each data item saved into members and add it to admembers with se properties you like
 foreach($member in $members){
-  $admember = $member.CODIGO
+  $admember = $member.columnName
   $admembers += Get-ADUser -Filter{Initials -eq $admember} -Properties * | Select Initials, EmailAddress,samAccountName
 }
 
